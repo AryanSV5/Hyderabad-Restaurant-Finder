@@ -2,14 +2,6 @@
 
 A web application built with Total.js framework that integrates with Dify AI to help users find restaurants in Hyderabad based on cuisine preferences.
 
-## Features
-
-- 🍽️ Interactive chat interface
-- 🤖 Powered by Dify AI chatflow
-- 💬 Conversation history support
-- 📱 Responsive design
-- 🎨 Beautiful gradient UI
-
 ## Setup Instructions
 
 ### 1. Clone the Repository
