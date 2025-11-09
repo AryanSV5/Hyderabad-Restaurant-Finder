@@ -1,6 +1,6 @@
 # Dify Restaurant Chatbot
 
-A web application built with Total.js framework that integrates with Dify AI to help users find restaurants in Hyderabad based on cuisine preferences.
+A web application built with Total.js framework that integrates with Dify AI to help users find restaurants in Hyderabad based on cuisine preferences. The app specifies the location and gives an insightful fact about the cuisine. 
 
 ## Dify Workflow
 
