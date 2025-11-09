@@ -1,0 +1,21 @@
+{
+  "name": "dify-restaurant-chatbot",
+  "version": "1.0.0",
+  "description": "Restaurant finder chatbot powered by Dify and Total.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "totaljs",
+    "dify",
+    "chatbot",
+    "restaurant"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "total4": "^0.0.86"
+  }
+}

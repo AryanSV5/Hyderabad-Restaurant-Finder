@@ -1,0 +1,10 @@
+node_modules/
+*.log
+.DS_Store
+.env
+
+# Don't commit config with API keys - users should add their own
+# config.js
+
+# Keep a config example instead
+# !config.example.js

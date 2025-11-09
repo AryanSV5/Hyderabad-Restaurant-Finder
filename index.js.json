@@ -1,0 +1,47 @@
+{
+	"pid": 19404,
+	"date": "2025-11-09T22:03:29.114Z",
+	"port": 3000,
+	"ip": "0.0.0.0",
+	"stats": [
+		{
+			"id": null,
+			"version": {
+				"node": "v22.11.0",
+				"total": "4",
+				"build": 4086,
+				"app": "1.0.0"
+			},
+			"pid": 19404,
+			"thread": "",
+			"mode": "release",
+			"overload": 0,
+			"date": "2025-11-09T22:05:29.168Z",
+			"memory": 8.63,
+			"rm": 1,
+			"fm": 0,
+			"wm": 0,
+			"em": 0,
+			"mm": 0,
+			"om": 0,
+			"dm": 0,
+			"um": 0,
+			"pm": 0,
+			"sm": 0,
+			"cm": 0,
+			"dbrm": 0,
+			"dbwm": 0,
+			"usage": 2,
+			"requests": 3,
+			"pending": 0,
+			"external": 0,
+			"errors": 0,
+			"timeouts": 0,
+			"online": 0,
+			"uptime": 3,
+			"download": 0,
+			"upload": 0.001,
+			"status": []
+		}
+	]
+}
