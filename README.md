@@ -6,6 +6,10 @@ A web application built with Total.js framework that integrates with Dify AI to 
 
 <img width="1353" height="718" alt="image" src="https://github.com/user-attachments/assets/3c85e4da-7947-4928-98e5-bad35f969809" />
 
+## Web Application
+
+<img width="1315" height="1216" alt="image" src="https://github.com/user-attachments/assets/140b15a0-8f74-4d96-81cd-4402f140ef3c" />
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
