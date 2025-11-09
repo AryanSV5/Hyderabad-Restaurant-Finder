@@ -1,0 +1,256 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: Hyderabad Restaurant Finder App
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.6@e2665624a156f52160927bceac9e169bd7e5ae6b936ae82575e14c90af390e6e
+    version: null
+kind: app
+version: 0.4.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1762725476366-llm
+      source: '1762725476366'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: llm-source-1762725542574-target
+      source: llm
+      sourceHandle: source
+      target: '1762725542574'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1762725542574-source-answer-target
+      source: '1762725542574'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: Start
+        type: start
+        variables: []
+      height: 51
+      id: '1762725476366'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 4539866a-a227-48f2-9245-453abf21e596
+          role: system
+          text: "Based on the cuisine specified in the {{#sys.query#}}, the AI is\
+            \ required to find a restaurant in Hyderabad, India that serves the cuisine\
+            \ and identify the address or location of the restaurant.\n\n    Steps:\n\
+            \    1. Look at the cuisine provided under the {{#sys.query#}} field from\
+            \ the data input.\n    2. Use this cuisine to search for a restaurant\
+            \ in Hyderabad, India that serves this type of food.\n    3. Identify\
+            \ the address or location of this restaurant.\n    4. Once these details\
+            \ are sourced, structure your response in this format: {\"cuisine\" :\
+            \ \"{{cuisine}}\", \"restaurant\" : \"{{restaurant_name}}\", \"location\"\
+            \ : \"{{restaurant_address}}\"}\n    \n    Please replace \"{{cuisine}}\"\
+            , \"{{restaurant_name}}\", and \"{{restaurant_address}}\" with the corresponding\
+            \ details from your search. Please make sure the output does not contain\
+            \ any xml tags."
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              address:
+                type: string
+              cuisine:
+                type: string
+              restaurant:
+                type: string
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: llm
+      position:
+        x: 380
+        y: 282
+      positionAbsolute:
+        x: 380
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: "Cuisine: {{#llm.structured_output.cuisine#}} \nRestaurant Name: {{#llm.structured_output.restaurant#}}\
+          \ \nAddress: {{#llm.structured_output.address#}} \nInteresting Fact: {{#1762725542574.cuisine_fact#}}"
+        selected: true
+        title: Answer
+        type: answer
+        variables: []
+      height: 172
+      id: answer
+      position:
+        x: 974.2032515387051
+        y: 282
+      positionAbsolute:
+        x: 974.2032515387051
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(cuisine: str) -> dict:\n    cuisine_name = cuisine.lower()\n\
+          \    cuisine_facts = {\n    \"italian\": \"Italian cuisine is known for\
+          \ its regional diversity, with over 400 different types of pasta.\",\n \
+          \   \"japanese\": \"Japanese cuisine emphasizes seasonality, and many dishes\
+          \ change with the seasons.\",\n    \"indian\": \"Indian cuisine uses over\
+          \ 200 different spices, creating some of the most complex flavor profiles\
+          \ in the world.\",\n    \"mexican\": \"Mexican cuisine is a UNESCO Intangible\
+          \ Cultural Heritage due to its cultural significance and diversity.\",\n\
+          \    \"french\": \"French cuisine introduced the concept of the restaurant\
+          \ during the 18th century in Paris.\",\n    \"thai\": \"Thai cuisine balances\
+          \ five fundamental tastes: sweet, sour, salty, bitter, and spicy.\",\n \
+          \   \"chinese\": \"Chinese cuisine is one of the world’s oldest, with documented\
+          \ culinary traditions going back over 3,000 years.\",\n    \"greek\": \"\
+          Greek cuisine heavily features olive oil—Greece is one of the top producers\
+          \ of olives globally.\",\n    \"turkish\": \"Turkish cuisine bridges Asia\
+          \ and Europe, influencing both Mediterranean and Middle Eastern food traditions.\"\
+          ,\n    \"ethiopian\": \"Ethiopian meals are traditionally eaten with injera,\
+          \ a sourdough flatbread used to scoop up food by hand.\"\n}\n\n    cuisine_fact\
+          \ = cuisine_facts.get(cuisine_name, \"No fun fact available or known about\
+          \ specified cuisine\")\n\n    return {\n        \"cuisine_fact\": cuisine_fact\n\
+          \    }\n\n"
+        code_language: python3
+        outputs:
+          cuisine_fact:
+            children: null
+            type: string
+        selected: false
+        title: Code
+        type: code
+        variables:
+        - value_selector:
+          - llm
+          - structured_output
+          - cuisine
+          value_type: object
+          variable: cuisine
+      height: 51
+      id: '1762725542574'
+      position:
+        x: 681
+        y: 282
+      positionAbsolute:
+        x: 681
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 64.28134405234073
+      y: 190.45061815498798
+      zoom: 0.7578582832551993
+  rag_pipeline_variables: []
