@@ -15,7 +15,7 @@ A web application built with Total.js framework that integrates with Dify AI to 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dify-restaurant-chatbot.git
+git clone https://github.com/AryanSV5/dify-restaurant-chatbot.git
 cd dify-restaurant-chatbot
 ```
 
